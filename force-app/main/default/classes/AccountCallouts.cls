@@ -26,7 +26,7 @@ public with sharing class AccountCallouts {
         HttpResponse response = http.send(request);
 
         if (response.getStatusCode() == 200) {
-            Id newAccountId = (Id) JSON.deserializeUntyped(response.getBody());
+            Id newAccountId = (Id) response.getBody();
             System.debug('New account was successfully created with ID ' + newAccountId);
             return newAccountId;
         } else {
@@ -60,7 +60,7 @@ public with sharing class AccountCallouts {
         HttpResponse response = http.send(request);
 
         if (response.getStatusCode() == 200) {
-            Id upsertedAccountId = (Id) JSON.deserializeUntyped(response.getBody());
+            Id upsertedAccountId = (Id) response.getBody();
             System.debug('Account with ID ' + upsertedAccountId + ' was successfully upserted.');
             return upsertedAccountId;
         } else {
@@ -79,7 +79,7 @@ public with sharing class AccountCallouts {
         HttpResponse response = http.send(request);
 
         if (response.getStatusCode() == 200) {
-            Id updatedAccountId = (Id) JSON.deserializeUntyped(response.getBody());
+            Id updatedAccountId = (Id) response.getBody();
             System.debug('Account with ID ' + updatedAccountId + ' was successfully updated.');
             return updatedAccountId;
         } else {
